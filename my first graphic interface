@@ -1,0 +1,56 @@
+
+from tkinter import *
+
+
+
+raiz= Tk()
+
+miframe=Frame(raiz, width=1200, height=600)
+miframe.pack()
+
+minombre = StringVar()
+
+cuadro_pass=Entry(miframe)
+cuadro_pass.grid(row=0, column=1,padx=10, pady=10)
+cuadro_pass.config(show="*")
+
+cuadro_nombre=Entry(miframe, textvariable=minombre)
+cuadro_nombre.grid(row=1, column=1,padx=10, pady=10)
+cuadro_nombre.config(fg="red", justify="center")
+
+cuadro_apellido=Entry(miframe)
+cuadro_apellido.grid(row=2, column=1,padx=10, pady=10)
+
+cuadro_direccion=Entry(miframe)
+cuadro_direccion.grid(row=3, column=1,padx=10, pady=10)
+
+text_comentario=Text(miframe,width=16, height=5)
+text_comentario.grid(row=4, column=1,padx=10, pady=10)
+
+scroll_vertical=Scrollbar(miframe, command=text_comentario.yview)
+scroll_vertical.grid(row=4, column=2, sticky="nsew")
+
+text_comentario.config(yscrollcommand=scroll_vertical.set)
+
+
+nombre_label=Label(miframe, text="nombre:")
+nombre_label.grid(row=1, column=0,padx=10, pady=10)
+
+apellido_label=Label(miframe, text="apellido:")
+apellido_label.grid(row=2, column=0, padx=10, pady=10)
+
+direccion_label=Label(miframe, text="direccion:")
+direccion_label.grid(row=3, column=0, padx=10, pady=10)
+
+pass_label=Label(miframe, text="contrasena:")
+pass_label.grid(row=0, column=0, padx=10, pady=10)
+
+comentarios_label=Label(miframe, text="comentarios:")
+comentarios_label.grid(row=4, column=0, padx=10, pady=10)
+
+def codigo_boton():
+
+ minombre.set("juan palomo")
+
+boton_envio=Button(raiz, text="enviar", command=codigo_boton)
+boton_envio.pack()
